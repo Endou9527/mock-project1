@@ -1,4 +1,4 @@
-@extends(layouts.app)
+@extends('layouts.app')
 
 @section('content')
   <h2>住所の変更</h2>

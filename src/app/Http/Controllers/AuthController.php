@@ -8,7 +8,7 @@ class AuthController extends Controller
 {
     // 会員登録画面￥表示
     public function showRegistrationForm(){
-        return view('');
+        return view('register');
     }
 
     // メール認証画面誘導￥表示
@@ -29,7 +29,7 @@ class AuthController extends Controller
     }
     // 送付先住所変更画面￥表示
     public function editAddress(){
-        return view('');
+        return view('address');
     }
     // 送付先住所変更￥実行
     public function updateAddress(){
