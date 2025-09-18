@@ -8,6 +8,17 @@
   @yield('css')
 </head>
 <body>
-  @yield('content')
+  <header class="header">
+      <a href="/" class="header_logo">
+        <img src="logo.svg" alt="サイトロゴ">
+      </a>
+      <div class="header_inner">
+        @yield('header_inner')
+      </div>
+  </header>
+  <main>
+    @yield('content')
+  </main>
+  
 </body>
 </html>
