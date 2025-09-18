@@ -8,32 +8,32 @@ class ProductController extends Controller
 {
     // 商品一覧（ログアウト状態）￥表示
     public function indexGuest(){
-        return view('');
+        return view('top');
     }
 
     // 商品一覧（ログイン状態）￥表示
     public function index(){
-        return view('');
+        return view('top');
     }
 
     // 商品詳細￥表示
     public function show(){
-        return view('');
+        return view('detail');
     }
 
     // 商品購入画面￥表示
     public function purchaseForm(){
-        return view('');
+        return view('purchase');
     }
 
     // 商品出品￥表示
     public function create(){
-        return view('');
+        return view('sell');
     }
-    
+
     // 商品出品￥実行
     public function store(){
-        return redirect('');
+        return redirect('top');
     }
 }
 
