@@ -8,6 +8,6 @@
   @yield('css')
 </head>
 <body>
-  @yield('')
+  @yield('content')
 </body>
 </html>
