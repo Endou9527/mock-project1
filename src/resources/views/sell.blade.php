@@ -28,22 +28,22 @@
     
     <div class="detail">商品の詳細
       <div class="category">
-        @foreach()
+        {{-- @foreach() --}}
         <input type="checkbox" name="name" />
         <label for=""></label>
-        @endforeach
+        {{-- @endforeach --}}
       </div>
       <div class="status">
         <select name="" id="">
           <option value="">選択してください</option>
-          @foreach
+          {{-- @foreach('') --}}
           <option value=""></option>
-          @endforeach
+          {{-- @endforeach --}}
         </select>
       </div>
     </div>
 
-    <div class="content">郵便番号
+    <div class="content">商品名と説明
       <label for="product_name">商品名
         <input type="text" id="product_name" name="name" />
       </label>

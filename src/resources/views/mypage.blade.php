@@ -20,43 +20,41 @@
 @endsection
 
 @section('content')
-  {{-- おすすめ内 --}}
-  <div class="sold_list">
-    <div class="sold_list--tab">
-      <input type="radio" id="sold_list" name="tab" /><label for="sold_list">出品した商品</label>
-    </div>
-    <div class="sold_products">
-      <div class="mylist_contents">
-        {{-- @foreach('') --}}
-        <div class="recommend_content">
-          <a href="/item/{item_id}">
+  <div class="product_list">
+    {{-- タブ「出品した商品」 --}}
+    <div class="product_list--sold">
+      <div class="sold_tab">
+        <input type="radio" id="sold_list" name="tab" /><label for="sold_list">出品した商品</label>
+      </div>
+      <div class="sold_products">
+        <div class="mylist_contents">
+          {{-- @foreach('') --}}
+          <a href="/item/{item_id}" class="mylist_content">
             <img src="" alt="" />
             <div class="detail_content">
               {{-- <p>{{ $product->name }}</p> --}}
             </div>
           </a>
+          {{-- @endforeach --}}
         </div>
-        {{-- @endforeach --}}
       </div>
     </div>
-  </div>
-  {{-- マイリスト内 --}}
-  <div class="purchased_list">
-    <div class="mylist_tab">
-      <input type="radio" id="mylist_tab" name="tab" /><label for="mylist_tab">マイリスト</label>
-    </div>
-    <div class="mylist_products">
-      <div class="mylist_contents">
-        {{-- @foreach('') --}}
-        <div class="mylist_content">
-          <a href="/item/{item_id}">
+    {{-- タブ「購入した商品」 --}}
+    <div class="purchased_list--sold">
+      <div class="purchased_tab">
+        <input type="radio" id="purchased_list" name="tab" /><label for="purchased_list">出品した商品</label>
+      </div>
+      <div class="purchased_products">
+        <div class="mylist_contents">
+          {{-- @foreach('') --}}
+          <a href="/item/{item_id}" class="mylist_content">
             <img src="" alt="" />
             <div class="detail_content">
               {{-- <p>{{ $product->name }}</p> --}}
             </div>
           </a>
+          {{-- @endforeach --}}
         </div>
-        {{-- @endforeach --}}
       </div>
     </div>
   </div>
