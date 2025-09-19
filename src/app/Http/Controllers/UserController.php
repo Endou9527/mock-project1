@@ -8,12 +8,12 @@ class UserController extends Controller
 {
     // プロフィール画面￥表示
     public function showProfile(){
-        return view('');
+        return view('mypage');
     }
 
     // プロフィール編集画面￥表示
     public function editProfile(){
-        return view('');
+        return view('setting');
     }
 
     // プロフィール編集￥実行
@@ -23,11 +23,11 @@ class UserController extends Controller
 
     // 購入した商品一覧￥表示
     public function purchasedList(){
-        return view('');
+        return view('purchase');
     }
     
     // 出品した商品一覧￥表示
     public function soldList(){
-        return view('');
+        return view('sell');
     }
 }

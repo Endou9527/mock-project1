@@ -26,8 +26,7 @@
       <input type="radio" id="recommend_tab" name="tab" /><label for="recommend_tab">おすすめ</label>
     </div>
     <div class="reccommend_products">
-      <dimylist_contents">
-        {{-- @foreach('') --}}
+      {{-- @foreach('') --}}
         <div class="recommend_content">
           <a href="/item/{item_id}">
             <img src="" alt="" />
@@ -36,7 +35,7 @@
             </div>
           </a>
         </div>
-        {{-- @endforeach --}}
+      {{-- @endforeach --}}
       </div>
     </div>
   </div>

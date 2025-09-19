@@ -26,6 +26,11 @@ class ProductController extends Controller
         return view('purchase');
     }
 
+    // 商品購入￥実行
+    public function purchase(){
+        return redirect('');
+    }
+
     // 商品出品￥表示
     public function create(){
         return view('sell');

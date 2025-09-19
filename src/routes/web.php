@@ -34,6 +34,8 @@ Route::post('/login',[AuthController::class,'login']);
 Route::get('/item/{item_id}',[ProductController::class,'show']);
 // 商品購入画面￥表示
 Route::get('/purchase/{item_id}',[ProductController::class,'purchaseForm']);
+// 商品購入￥実行
+Route::post('/purchase/{item_id}',[ProductController::class,'purchase']);
 // 送付先住所変更画面￥表示
 Route::get('/purchase/address/{item_id}',[AuthController::class,'editAddress']);
 // 送付先住所変更￥実行
