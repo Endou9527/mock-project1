@@ -43,7 +43,7 @@ Route::post('/purchase/address/{item_id}',[AuthController::class,'updateAddress'
 // 商品出品￥表示
 Route::get('/sell',[ProductController::class,'create']);
 // 商品出品￥実行
-Route::get('/sell/store',[ProductController::class,'store']);
+Route::post('/sell',[ProductController::class,'store']);
 // プロフィール画面￥表示
 Route::get('/mypage',[UserController::class,'showProfile']);
 // プロフィール編集画面￥表示

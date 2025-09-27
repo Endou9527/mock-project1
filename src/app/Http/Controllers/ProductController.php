@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ExhibitionRequest;
 
 class ProductController extends Controller
 {
@@ -37,8 +38,18 @@ class ProductController extends Controller
     }
 
     // 商品出品￥実行
-    public function store(){
-        return redirect('top');
+    public function store(ExhibitionRequest $request){
+        $product = $request->user()->products()->create([
+            'name' => $request->name,
+            'brand' => $request->brand,
+            'image' => $request->file('image')->store('products','public'),
+            'price' => $request->price,
+            'description' => $request->description,
+            'status_id' => $request->status_id,
+        ]);
+        $product->categories()->sync($request->categories);
+
+        return redirect()->route('top');
     }
 }
 
