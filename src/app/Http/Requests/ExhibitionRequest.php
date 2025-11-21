@@ -26,7 +26,7 @@ class ExhibitionRequest extends FormRequest
         return [
             'image' => 'required | mimes:png,jpeg',
             'category_id' =>'required',
-            'status' =>'required',
+            'status_id' =>'required',
             'name' =>'required',
             'description' =>'required | max:255',
             'price' =>'required | integer | min:0'
@@ -38,8 +38,8 @@ class ExhibitionRequest extends FormRequest
         return[
             'image.required' => 'エラー',
             'image.mimes' => 'エラー',
-            'category.required' => 'エラー',
-            'status.required' => 'エラー',
+            'category_id.required' => 'エラー',
+            'status_id.required' => 'エラー',
             'name.required' => 'エラー',
             'description.required' => 'エラー',
             'description.max' => 'エラー',

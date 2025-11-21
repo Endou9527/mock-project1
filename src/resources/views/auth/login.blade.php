@@ -11,7 +11,8 @@
 
 @section('content')
   <h2 class="page_title">ログイン</h2>
-  <form action="">
+  <form class="form" action="/login" method="post">
+    @csrf
     <label for="email">メールアドレス
       <input type="text" id="email" name="email" />
     </label>

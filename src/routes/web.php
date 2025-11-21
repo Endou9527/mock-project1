@@ -19,17 +19,15 @@ use App\Http\Controllers\UserController;
 // 商品一覧（ログアウト状態）￥表示
 Route::get('/', [ProductController::class,'indexGuest']);
 // 商品一覧（ログイン状態）￥表示
-Route::get('/?tab=mylist',[ProductController::class,'index']);
-// 会員登録画面￥表示
-Route::get('/register',[AuthController::class,'showRegistrationForm']);
+Route::middleware('auth')->group(function(){
+  Route::get('/?tab=mylist',[ProductController::class,'index']);
+});
 // メール認証画面誘導￥表示
 Route::get('/register/mail_setting',[AuthController::class,'showEmailVerificationNotice']);
-// 会員登録￥実行
-Route::post('/register',[AuthController::class,'register']);
-// ログイン画面￥表示
-Route::get('/login',[AuthController::class,'showLoginForm']);
-// ログイン￥実行
-Route::post('/login',[AuthController::class,'login']);
+// // 会員登録￥実行
+// Route::post('/register',[AuthController::class,'register']);
+// // ログイン￥実行
+// Route::post('/login',[AuthController::class,'login']);
 // 商品詳細￥表示
 Route::get('/item/{item_id}',[ProductController::class,'show']);
 // 商品購入画面￥表示

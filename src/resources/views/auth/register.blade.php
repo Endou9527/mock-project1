@@ -9,7 +9,8 @@
 
 @section('content')
   <h2 class="page_title">会員登録</h2>
-  <form action="">
+  <form class="form" action="{{ route('register') }}" method="post">
+    @csrf
     <label for="user_name">ユーザ名
       <input type="text" id="user_name" name="name" />
     </label>

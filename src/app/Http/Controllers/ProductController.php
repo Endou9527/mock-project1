@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ExhibitionRequest;
+use App\Models\Category;
+use App\Models\Status;
 
 class ProductController extends Controller
 {
@@ -34,7 +36,10 @@ class ProductController extends Controller
 
     // 商品出品￥表示
     public function create(){
-        return view('sell');
+        $categories = Category::all();
+        $statuses = Status::all();
+
+        return view('sell',compact('categories','statuses'));
     }
 
     // 商品出品￥実行

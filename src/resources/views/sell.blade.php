@@ -11,8 +11,11 @@
     <input type="text" name="help" placeholder="なにをお探しですか" />
   </div>
   <div class="header_inner--right">
-  <!-- @if('Authcheck') -->
+  <!-- @if (Auth::check()) -->
     <a href="/login">ログイン</a>
+  <!-- @endif -->
+  <!-- @if (Auth::check()) -->
+    <a href="/logout">ログアウト</a>
   <!-- @endif -->
     <a href="/mypage"></a>
     <a href="/sell">出品</a>
@@ -21,7 +24,7 @@
 
 @section('content')
   <h2 class="page_title">商品の出品</h2>
-  <form action="/sell" method="post">
+  <form action="/sell" method="post" enctype="multipart/form-data">
     @csrf
     <div class="image">商品画像
       <input type="file" id="image" name="image" value="{{ old('image') }}" />
@@ -32,23 +35,21 @@
     
     <div class="detail">商品の詳細
       <div class="category">カテゴリー
-        {{-- @foreach() --}}
-        <input type="checkbox" name="category" value="" />
-        <label for="category"></label>
-        {{-- @endforeach --}}
-          @error('category')
+        @foreach($categories as $category)
+          <input type="checkbox" name="category_id[]" value="{{ $category->id }}" />
+          <label for="category">{{ in_array($category->id, old('category_id', [])) ? 'checked' : '' }}
+          {{ $category->name }}</label>
+        @endforeach
+        @error('category')
           {{ $message }}
-          @enderror
+        @enderror
       </div>
       <div class="status">商品の状態
-        <select name="status" id="">
+        <select name="status_id" id="">
           <option value="">選択してください</option>
-          {{-- 以下仮option --}}
-          <option value="1" name="1.良い">良い</option>
-          {{-- 以上 --}}
-          {{-- @foreach('') --}}
-          <option value=""></option>
-          {{-- @endforeach --}}
+          @foreach($statuses as $status)
+          <option value="{{ $status->id }}" {{ old('status_id') == $status->id ? 'selected' : '' }}>{{ $status->name }}</option>
+          @endforeach
         </select>
         @error('status')
           {{ $message }}
@@ -67,7 +68,7 @@
         <input type="text" id="product_brand" name="brand" />
       </label>
       <label for="product_description">商品の説明
-        <input type="textarea" id="product_description" name="description" />
+        <textarea id="product_description" name="description"></textarea>
         @error('description')
           {{ $message }}
         @enderror

@@ -11,8 +11,11 @@
     <input type="text" name="help" placeholder="なにをお探しですか" />
   </div>
   <div class="header_inner--right">
-  <!-- @if('Authcheck') -->
+  <!-- @if (Auth::check()) -->
     <a href="/login">ログイン</a>
+  <!-- @endif -->
+  <!-- @if (Auth::check()) -->
+    <a href="/logout">ログアウト</a>
   <!-- @endif -->
     <a href="/mypage"></a>
     <a href="/sell">出品</a>

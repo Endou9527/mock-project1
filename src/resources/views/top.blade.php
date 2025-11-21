@@ -11,9 +11,15 @@
     <input type="text" name="help" placeholder="なにをお探しですか" />
   </div>
   <div class="header_inner--right">
-  <!-- @if('Authcheck') -->
+  @guest
     <a href="/login">ログイン</a>
-  <!-- @endif -->
+  @endguest
+  @auth
+    <form class="form--logout" action="{{ route('logout') }}" method="post">
+      @csrf
+      <button type="submit" class="logout-btn">ログアウト</button>
+    </form>
+  @endauth
     <a href="/mypage"></a>
     <a href="/sell">出品</a>
   </div>
