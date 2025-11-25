@@ -39,9 +39,9 @@ Route::get('/purchase/address/{item_id}',[AuthController::class,'editAddress']);
 // 送付先住所変更￥実行
 Route::post('/purchase/address/{item_id}',[AuthController::class,'updateAddress']);
 // 商品出品￥表示
-Route::get('/sell',[ProductController::class,'create']);
+Route::get('/sell',[ProductController::class,'create'])->middleware('auth');
 // 商品出品￥実行
-Route::post('/sell',[ProductController::class,'store']);
+Route::post('/sell',[ProductController::class,'store'])->middleware('auth');
 // プロフィール画面￥表示
 Route::get('/mypage',[UserController::class,'showProfile']);
 // プロフィール編集画面￥表示

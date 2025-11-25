@@ -54,7 +54,7 @@ class ProductController extends Controller
         ]);
         $product->categories()->sync($request->categories);
 
-        return redirect()->route('top');
+        return redirect('/?tab=mylist');
     }
 }
 
