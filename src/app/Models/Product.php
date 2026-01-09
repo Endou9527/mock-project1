@@ -17,4 +17,14 @@ class Product extends Model
     public function categories(){
         return $this->belongsToMany(Category::class,'category_product');
     }
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
+    public function isSold()
+    {
+        return $this->purchases()->exists();
+    }
 }

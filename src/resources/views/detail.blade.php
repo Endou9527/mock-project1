@@ -37,6 +37,9 @@
       <div class="name"></div>
       <div class="brand"></div>
       <div class="price"></div>
+      <div class="purchase_button">
+        <a href="/purchase/{item_id}">購入手続きへ</a>
+      </div>
       <div class="description"></div>
       <div class="information">
         <div class="imformation_category"></div>
@@ -45,7 +48,7 @@
       <div class="review">
         <div class="review_comment"></div>
         <div class="review_form">
-          <form action="">
+          <form class="form--comment" action="">
             <input type="textarea" name="comment" />
             <button type="submit">コメントを送信する</button>
           </form>

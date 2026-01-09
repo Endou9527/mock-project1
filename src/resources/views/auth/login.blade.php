@@ -16,6 +16,9 @@
     <label for="email">メールアドレス
       <input type="text" id="email" name="email" />
     </label>
+    @error('email')
+      <div class="error-message">{{ $message }}</div>
+    @enderror
     <label for="password">パスワード
       <input type="password" id="password" name="password" />
     </label>

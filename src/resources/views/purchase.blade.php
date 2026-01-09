@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title' , '商品購入画面')
-@endsection
+{{--@section('title' , '商品購入画面')
+@endsection--}}
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/purchase.css') }}">
@@ -27,14 +27,15 @@
 @endsection
 
 @section('content')
-<form action="/purchase/{item_id}" >
+<form action="/purchase/{{ $product->id }}" method="post">
+  @csrf
   {{-- 左 --}}
   <div class="left">
     <div class="about-product">
-      <img src="" alt="商品画像" class="image" />
+      <img src="{{ asset('strage/' .$product->image) }}" alt="商品画像" class="image" />
       <div class="content">
-        <div class="product--name"></div>
-        <div class="product--price"></div>
+        <div class="product--name">{{ $product->name }}</div>
+        <div class="product--price">¥{{ $product->price }}</div>
       </div>
     </div>
     <div class="payment">
@@ -48,9 +49,8 @@
     </div>
     <div class="address">
       <div class="address_confirmation">
-
       </div>
-      <a href="/purchase/address/{item_id}" class="address_change">変更する</a>
+      <a href="/purchase/address/{{ $product->id }}" class="address_change">変更する</a>
     </div>
   </div>
 

@@ -36,16 +36,16 @@ class ExhibitionRequest extends FormRequest
     public function messages()
     {
         return[
-            'image.required' => 'エラー',
-            'image.mimes' => 'エラー',
-            'category_id.required' => 'エラー',
-            'status_id.required' => 'エラー',
-            'name.required' => 'エラー',
-            'description.required' => 'エラー',
-            'description.max' => 'エラー',
-            'price.required' => 'エラー',
-            'price.integer' => 'エラー',
-            'price.min' => 'エラー',
+            'image.required' => '画像を選択してください',
+            'image.mimes' => 'JPEG、PNGのいずれかのファイルのみです',
+            'category_id.required' => 'カテゴリーを選択してください',
+            'status_id.required' => '商品の状態を選択してください',
+            'name.required' => '商品名を入力してください',
+            'description.required' => '商品の説明を入力してください',
+            'description.max' => '255文字以内で入力してください',
+            'price.required' => '価格を設定してください',
+            'price.integer' => '整数で設定してください',
+            'price.min' => '0円以上で設定してください',
         ];
     }
 }
