@@ -37,28 +37,15 @@ class ProductController extends Controller
     }
 
     // 商品購入￥実行
-    public function purchase(Request $request, Product $product){
+    public function purchase(Request $request, $item_id){
         $user = $request->user();
 
-        // 二重購入防止
-        if ($product->isSold()) {
-            return back()->withErrors('この商品はすでに購入されています');
-        }
-
-        DB::transaction(function () use ($user, $product) {
-
-            Purchase::create([
-                'user_id'    => $user->id,
-                'product_id' => $product->id,
-                'price'      => $product->price,
-            ]);
-
-            // もし商品に status があるなら更新
-            $product->update([
-                'status_id' => Status::SOLD, // 定数化推奨
-            ]);
-        });
-
+        Purchase::create([
+        'user_id'    => auth()->id(),
+        'product_id' => $item_id,
+        'payment'    => $request->payment,
+        ]);
+        
         return redirect('/mypage?page=buy');
     }
 

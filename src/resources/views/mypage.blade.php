@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title' , 'プロフィール画面')
+@section('title')
+  プロフィール画面
 @endsection
 
 @section('css')

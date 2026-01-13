@@ -20,8 +20,9 @@ class AuthController extends Controller
         return redirect('');
     }
     // 送付先住所変更画面￥表示
-    public function editAddress(){
-        return view('address');
+    public function editAddress($item_id){
+        $user = auth()->user();
+        return view('address' , compact('user','item_id'));
     }
     // 送付先住所変更￥実行
     public function updateAddress(){
