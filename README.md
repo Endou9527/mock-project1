@@ -138,7 +138,7 @@ php artisan key:generate
   <br />
 
 ### ER図
-　　![ER図](ER図.jpg)
+　　![ER図](mock-project1.jpg)
   <br /> 
   <br />
   <br />  
